@@ -1,0 +1,71 @@
+
+<project name="FileBinding" default="dist" basedir=".">
+
+	<property name="src.dir" location="src/filebinding" />	
+	<property name="src.lib" location="lib"/>
+	<property name="dist.lib" location="dist" />
+	
+	<property name="build.class" location="build/classes" />	
+	<property name="dist.jar" location="${dist.lib}/file-binding.jar" />
+
+	<property name="build.debug" value="true" />
+	<property name="build.optimize" value="false" />
+	<property name="build.source" value="1.6" />
+	<property name="build.target" value="1.6" />
+	
+	<path id="core.libs" description="GEC Core Lib jars">
+		<fileset dir="${src.lib}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+
+	<path id="build.path" description="base path">
+		<pathelement path="${sun.boot.class.path}" />
+		<path refid="core.libs" />		
+	</path>
+	
+	<path id="dist.path" description="distribution path">
+		<path refid="build.path" />
+		<fileset dir="${dist.lib}" includes="**/*.jar" />
+	</path>
+
+	<target name="help">
+		<echo message="Targets are: clean, compile, javadoc, and dist" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${build.class}" />
+		<!-- <delete dir="${dist.lib}" /> -->
+	</target>
+
+	<target name="init" depends="clean">
+		<mkdir dir="${build.class}" />		
+		<!-- <mkdir dir="${dist.lib}" /> -->
+	</target>
+	
+
+	<target name="compile" depends="init">
+		<echo>compiling sources ...</echo>
+		<javac source="${build.source}" target="${build.target}" destdir="${build.class}" optimize="${build.optimize}" debug="${build.debug}" includeantruntime="true">
+			<!--<compilerarg line="-Xlint:unchecked" /> -->
+			<src path="${src.dir}" />
+			<classpath refid="build.path" />
+		</javac>
+			
+		<copy todir="${build.class}">
+		      <fileset dir="${src.dir}">
+		        <include name="**/*.gif"/>
+		        <include name="**/*.jpg"/>
+		        <include name="**/*.png"/>
+		        <include name="**/*.xml"/>
+		      </fileset>
+		</copy>
+	</target>
+
+	<target name="dist" depends="compile">
+		<jar jarfile="${dist.jar}">
+			<fileset dir="${build.class}" />
+		</jar>	
+	</target>
+
+</project>
