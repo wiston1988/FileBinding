@@ -8,10 +8,10 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.netease.filebinding.core.io.DocumentWriter;
-import com.netease.filebinding.core.io.csv.CSVWriter;
-import com.netease.filebinding.core.io.excel.XLSXWriter;
-import com.netease.filebinding.core.strategy.BuildingStrategy;
+import com.filebinding.core.io.DocumentWriter;
+import com.filebinding.core.io.csv.CSVWriter;
+import com.filebinding.core.io.excel.XLSXWriter;
+import com.filebinding.core.strategy.BuildingStrategy;
 
 import filebinding.model.People;
 import filebinding.utils.DocumentConfigFactory;

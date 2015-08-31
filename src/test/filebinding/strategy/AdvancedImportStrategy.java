@@ -3,11 +3,11 @@ package filebinding.strategy;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
-import com.netease.filebinding.core.exception.FieldException;
-import com.netease.filebinding.core.exception.MappingException;
-import com.netease.filebinding.core.exception.RecordException;
-import com.netease.filebinding.core.io.DocumentReader;
-import com.netease.filebinding.core.strategy.base.template.HeaderMappingParsingStrategy;
+import com.filebinding.core.exception.FieldException;
+import com.filebinding.core.exception.MappingException;
+import com.filebinding.core.exception.RecordException;
+import com.filebinding.core.io.DocumentReader;
+import com.filebinding.core.strategy.base.template.HeaderMappingParsingStrategy;
 
 import filebinding.model.AdvancedBean;
 

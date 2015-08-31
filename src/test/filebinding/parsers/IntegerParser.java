@@ -1,10 +1,10 @@
 package filebinding.parsers;
 
-import com.netease.filebinding.core.config.DocumentFieldConfiguration;
-import com.netease.filebinding.core.exception.FieldException;
-import com.netease.filebinding.core.exception.MappingException;
-import com.netease.filebinding.core.fieldSupport.FieldParser;
-import com.netease.filebinding.core.util.BaseTypeConverter;
+import com.filebinding.core.config.DocumentFieldConfiguration;
+import com.filebinding.core.exception.FieldException;
+import com.filebinding.core.exception.MappingException;
+import com.filebinding.core.fieldSupport.FieldParser;
+import com.filebinding.core.util.BaseTypeConverter;
 
 public class IntegerParser implements FieldParser {
 

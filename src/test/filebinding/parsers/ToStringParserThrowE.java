@@ -3,10 +3,10 @@ package filebinding.parsers;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.netease.filebinding.core.config.DocumentFieldConfiguration;
-import com.netease.filebinding.core.exception.FieldException;
-import com.netease.filebinding.core.exception.MappingException;
-import com.netease.filebinding.core.fieldSupport.FieldParser;
+import com.filebinding.core.config.DocumentFieldConfiguration;
+import com.filebinding.core.exception.FieldException;
+import com.filebinding.core.exception.MappingException;
+import com.filebinding.core.fieldSupport.FieldParser;
 
 public class ToStringParserThrowE implements FieldParser {
 

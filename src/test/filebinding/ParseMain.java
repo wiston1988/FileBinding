@@ -5,16 +5,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import com.netease.filebinding.core.domain.DocumentParseResult;
-import com.netease.filebinding.core.domain.DocumentParseSummary;
-import com.netease.filebinding.core.exception.ConfigException;
-import com.netease.filebinding.core.exception.RecordException;
-import com.netease.filebinding.core.io.DocumentReader;
-import com.netease.filebinding.core.io.csv.CSVReader;
-import com.netease.filebinding.core.io.excel.XLSReader;
-import com.netease.filebinding.core.io.excel.XLSXReader;
-import com.netease.filebinding.core.io.jdkAdapter.DocumentBufferReader;
-import com.netease.filebinding.core.strategy.ParsingStrategy;
+import com.filebinding.core.domain.DocumentParseResult;
+import com.filebinding.core.domain.DocumentParseSummary;
+import com.filebinding.core.exception.ConfigException;
+import com.filebinding.core.exception.RecordException;
+import com.filebinding.core.io.DocumentReader;
+import com.filebinding.core.io.csv.CSVReader;
+import com.filebinding.core.io.excel.XLSReader;
+import com.filebinding.core.io.excel.XLSXReader;
+import com.filebinding.core.io.jdkAdapter.DocumentBufferReader;
+import com.filebinding.core.strategy.ParsingStrategy;
 
 import filebinding.model.*;
 import filebinding.utils.DocumentConfigFactory;

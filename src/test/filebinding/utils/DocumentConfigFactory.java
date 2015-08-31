@@ -5,12 +5,12 @@ import java.io.InputStream;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.netease.filebinding.core.config.DocumentMappingConfiguration;
-import com.netease.filebinding.core.config.DocumentMappingConfigurator;
-import com.netease.filebinding.core.exception.ConfigException;
-import com.netease.filebinding.core.exception.GeneralException;
-import com.netease.filebinding.core.strategy.BuildingStrategy;
-import com.netease.filebinding.core.strategy.ParsingStrategy;
+import com.filebinding.core.config.DocumentMappingConfiguration;
+import com.filebinding.core.config.DocumentMappingConfigurator;
+import com.filebinding.core.exception.ConfigException;
+import com.filebinding.core.exception.GeneralException;
+import com.filebinding.core.strategy.BuildingStrategy;
+import com.filebinding.core.strategy.ParsingStrategy;
 
 public class DocumentConfigFactory {
 	private Log log;

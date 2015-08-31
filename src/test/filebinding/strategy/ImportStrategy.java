@@ -2,9 +2,9 @@ package filebinding.strategy;
 
 import java.io.IOException;
 
-import com.netease.filebinding.core.exception.MappingException;
-import com.netease.filebinding.core.io.DocumentReader;
-import com.netease.filebinding.core.strategy.base.template.HeaderMappingParsingStrategy;
+import com.filebinding.core.exception.MappingException;
+import com.filebinding.core.io.DocumentReader;
+import com.filebinding.core.strategy.base.template.HeaderMappingParsingStrategy;
 
 public class ImportStrategy extends HeaderMappingParsingStrategy {
 
