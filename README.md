@@ -94,21 +94,19 @@ SubstrByLenthParsingStrategy：根据长度来读取列，位置从0开始递增
 ```
 
 ### 2.4.1 根节点配置
-
-property	自定义全局属性，可以在自定义类中使用
-auto-fieldParser
-auto-fieldRenderer	自定义类型转换类的配置，如果记录配置中的列没有配置解析器或渲染器，那么会使用这个配置来解析或者渲染，依次根据配置顺序和方法boolean canConvert(DocumentFieldConfiguration config)返回值来判断用哪个类来解析或渲染。
-classConfig	类的别名配置，类似ibatis中的typeAlias
+|property|自定义全局属性，可以在自定义类中使用|
+|auto-fieldParser<br> auto-fieldRenderer|自定义类型转换类的配置，如果记录配置中的列没有配置解析器或渲染器，那么会使用这个配置来解析或者渲染，依次根据配置顺序和方法boolean canConvert(DocumentFieldConfiguration config)返回值来判断用哪个类来解析或渲染。|
+|classConfig|类的别名配置，类似ibatis中的typeAlias|
 
 ### 2.4.2 记录级别配置
 
-tag	必填字段。记录解析或渲染的ID，不能重名。 
-class	必填字段。对应的POJO类，该类可在classConfig中的别名，也可以是“包+java bean”。
-parser/builder	必填字段。Parsing 或Building 策略名。
-ignoreerror	如果配置true，文件解析某一行时报错，可忽略该行。默认为false。
-dateFormat	为该配置下所有记录日期类型字段设置默认解析或渲染的格式，这个格式不统一，可以为任意表达式，只要自定义的解析器或渲染器能够识别就可以，如yyyyMMdd，则对应的日期解析器需要能识别该表达式并解析。可以详见解析例子配置[AdvancedImport]。
-numberFormat	为该配置下所有记录数字类型字段设置默认解析或渲染的格式，这个格式不统一，可以为任意表达式，只要自定义的解析器或渲染器能够识别就可以，如numberFormat="5"可以表示为数字的长度，可以详见解析例子配置[AdvancedImport]。
-labelSupport	该字段为导出功能使用，如果配置为true，导出时文件内容第一行有header，默认为false。
+|tag|必填字段。记录解析或渲染的ID，不能重名。 |
+|class|必填字段。对应的POJO类，该类可在classConfig中的别名，也可以是“包+java bean”。|
+|parser/builder|必填字段。Parsing 或Building 策略名。|
+|ignoreerror|如果配置true，文件解析某一行时报错，可忽略该行。默认为false。|
+|dateFormat|为该配置下所有记录日期类型字段设置默认解析或渲染的格式，这个格式不统一，可以为任意表达式，只要自定义的解析器或渲染器能够识别就可以，如yyyyMMdd，则对应的日期解析器需要能识别该表达式并解析。可以详见解析例子配置[AdvancedImport]。|
+|numberFormat|为该配置下所有记录数字类型字段设置默认解析或渲染的格式，这个格式不统一，可以为任意表达式，只要自定义的解析器或渲染器能够识别就可以，如numberFormat="5"可以表示为数字的长度，可以详见解析例子配置[AdvancedImport]。|
+|labelSupport	该字段为导出功能使用，如果配置为true，导出时文件内容第一行有header，默认为false。|
 
 ### 2.4.3 POJO域级别配置
 
