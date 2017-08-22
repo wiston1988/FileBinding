@@ -94,6 +94,7 @@ SubstrByLenthParsingStrategy：根据长度来读取列，位置从0开始递增
 ```
 
 ### 2.4.1 根节点配置
+|属性|描述|
 | ---------- | -----------|
 |property|自定义全局属性，可以在自定义类中使用|
 |auto-fieldParser<br> auto-fieldRenderer|自定义类型转换类的配置，如果记录配置中的列没有配置解析器或渲染器，那么会使用这个配置来解析或者渲染，依次根据配置顺序和方法boolean canConvert(DocumentFieldConfiguration config)返回值来判断用哪个类来解析或渲染。|
@@ -101,6 +102,7 @@ SubstrByLenthParsingStrategy：根据长度来读取列，位置从0开始递增
 
 ### 2.4.2 记录级别配置
 
+|属性|描述|
 | ---------- | -----------|
 |tag|必填字段。记录解析或渲染的ID，不能重名。 |
 |class|必填字段。对应的POJO类，该类可在classConfig中的别名，也可以是“包+java bean”。|
@@ -112,6 +114,7 @@ SubstrByLenthParsingStrategy：根据长度来读取列，位置从0开始递增
 
 ### 2.4.3 POJO域级别配置
 
+|属性|描述|
 | ---------- | -----------|
 | name | 必填字段。必须和POJO中的属性名一致。| 
 | bind-to-column | 对应的文件列的配置，比如，当策略为HeaderMappingParsingStrategy，就表示header，当策略为SubstrParsingStrategy，就表示起始位置和结束位置。| 
