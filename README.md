@@ -11,7 +11,7 @@ file-binding
 ## 2.1 概述
 
 下图为文件解析绑定中间件工作流程：
- 
+ ![https://github.com/wiston1988/file-binding/blob/master/readme/framework.png]
 
 ## 2.2 IO 适配器
 
@@ -44,6 +44,7 @@ com.filebinding.core.io.jdkAdapter.DocumentBufferWriter
 
 文件绑定策略用于解析和渲染文件的核心组件。
 下面介绍工具已经实现的文件绑定策略类关系图，开发自己实现的可参考并继承对应的类：
+ ![https://github.com/wiston1988/file-binding/blob/master/readme/class.png]
  FileBindStrategy是所有最基本实现接口。下面介绍了5个类的使用场景：
 
 ### 2.3.1 导出文件策略：
