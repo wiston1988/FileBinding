@@ -11,20 +11,24 @@ file-binding
 ## 2.1 概述
 
 下图为文件解析绑定中间件工作流程：
- ![https://github.com/wiston1988/file-binding/blob/master/readme/framework.png]
+ ![](https://github.com/wiston1988/file-binding/blob/master/readme/framework.png)
 
 ## 2.2 IO 适配器
 
 IO适配器就是描述怎样对每个类型文件读取或写入时进行行级别或单元格级别分割等。所有通用的文件读写IO都实现以下2个类：DocumentReader and DocumentWriter
+```Java
+public interface DocumentReader<T> extends Closeable{
+	public List<T> readAll() throws IOException;	
+	public T readNext() throws IOException;	
+	public boolean hasNext();
+}
 
-
-
-
-
-
-
-
-
+public interface DocumentWriter<T> extends Closeable{
+	public void writeAll(List<T> allLines)throws IOException;
+	public void writeNext(T nextLine)throws IOException;
+	public void flush()throws IOException;
+}
+```
 
 工具类提供了以下通用的文件读写IO模板，用户也可自定义自己的IO适配器并实现上面给出的实现类。
 CSV读写IO：
@@ -44,7 +48,7 @@ com.filebinding.core.io.jdkAdapter.DocumentBufferWriter
 
 文件绑定策略用于解析和渲染文件的核心组件。
 下面介绍工具已经实现的文件绑定策略类关系图，开发自己实现的可参考并继承对应的类：
- ![https://github.com/wiston1988/file-binding/blob/master/readme/class.png]
+  ![](https://github.com/wiston1988/file-binding/blob/master/readme/class.png)
  FileBindStrategy是所有最基本实现接口。下面介绍了5个类的使用场景：
 
 ### 2.3.1 导出文件策略：
@@ -70,24 +74,24 @@ SubstrByLenthParsingStrategy：根据长度来读取列，位置从0开始递增
 
 配置文件包含export和build两类文件，在程序启动加载或web启动加载。两类配置文件的基本结构如下：
 
+```XML
+<docmapping>
+	<description>Import configuration</description>
+	<property name=" " value=" " />
 
+	<auto-fieldParser>
+		<value>IntegerParser</value>
+	<auto-fieldParser>
 
+	<classConfig>
+		<class name="" value=""/>
+	</classConfig>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<record tag="" class="" parser="" ignoreerror="true">
+	<mapping-field name="" bind-to-column=""/>
+<record
+</docmapping>
+```
 
 ### 2.4.1 根节点配置
 
@@ -123,15 +127,18 @@ valid	当配置为false，该列在解析或渲染将被忽略。默认为true�
 src/test文件夹下包含各个不同类型的文件解析和渲染例子，以及各个渲染器和解析器的写法。下面给出CSV文件解析步骤：
 ## 3.1 步骤1 – 映射文件配置
 
-
-
-
-
-
-
-
-
-
+```XML
+<record tag="[TestImport]" class="Teacher" parser="ImportStrategy" ignoreerror="true">
+		<mapping-field name="student.studentName">
+			<bind-to-column groupname="studentName"><!-- If groupname is not setup, the first column valye will be groupname -->
+				<value>studentName</value>
+				<value>student name</value>
+			</bind-to-column>
+		</mapping-field>
+		<mapping-field name="name" bind-to-column="name" parser="ToUpperCaseParser"/>
+		<mapping-field name="age" bind-to-column="age" />
+</record>
+```
 	
 注：具体配置信息详解可参考前面章节。其他配置详见代码文件filebinding.config.ImportDocumentConfig.xml
 ## 3.2 步骤2 – IO适配器
